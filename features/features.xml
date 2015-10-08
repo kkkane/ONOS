@@ -136,5 +136,9 @@
         <bundle>mvn:org.onosproject/org.apache.felix.framework.security/2.2.0.onos</bundle>
         <bundle>mvn:org.onosproject/onos-security/@ONOS-VERSION</bundle>
     </feature>
-
+    <feature name="onos-app-hello" version="@FEATURE-VERSION"
+             description="lab224 ONOS test">
+        <feature>onos-api</feature>
+        <bundle>mvn:org.onosproject/onos-app-hello/1.4.0-SNAPSHOT</bundle>
+    </feature>
 </features>
