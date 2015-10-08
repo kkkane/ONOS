@@ -68,10 +68,6 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Sets;
 
 import static com.google.common.base.Preconditions.checkNotNull;
-<<<<<<< HEAD
-=======
-import static com.google.common.base.Preconditions.checkState;
->>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
 import static org.slf4j.LoggerFactory.getLogger;
 import static org.onosproject.net.AnnotationKeys.BANDWIDTH;
 
@@ -298,12 +294,9 @@ public class ConsistentLinkResourceStore extends
             intentAllocs.put(allocations.intentId(), allocations);
             allocations.links().forEach(link -> allocateLinkResource(tx, link, allocations));
             tx.commit();
-<<<<<<< HEAD
         } catch (TransactionException | ResourceAllocationException e) {
             log.error("Exception thrown, rolling back", e);
             tx.abort();
-=======
->>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
         } catch (Exception e) {
             log.error("Exception thrown, rolling back", e);
             tx.abort();
@@ -321,13 +314,7 @@ public class ConsistentLinkResourceStore extends
             if (req instanceof BandwidthResourceAllocation) {
                 // check if allocation should be accepted
                 if (avail.isEmpty()) {
-<<<<<<< HEAD
                     throw new ResourceAllocationException(String.format("There's no Bandwidth resource on %s?", link));
-=======
-                    checkState(!avail.isEmpty(),
-                               "There's no Bandwidth resource on %s?",
-                               link);
->>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
                 }
                 BandwidthResourceAllocation bw = (BandwidthResourceAllocation) avail.iterator().next();
                 double bwLeft = bw.bandwidth().toDouble();

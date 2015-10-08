@@ -31,10 +31,6 @@ import org.onosproject.net.flow.instructions.Instruction;
 import org.onosproject.net.flow.instructions.Instructions;
 import org.onosproject.net.meter.MeterId;
 
-<<<<<<< HEAD
-=======
-import java.util.Collections;
->>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
 import java.util.List;
 import java.util.Objects;
 
@@ -54,11 +50,7 @@ public final class DefaultTrafficTreatment implements TrafficTreatment {
     private final boolean hasClear;
 
     private static final DefaultTrafficTreatment EMPTY
-<<<<<<< HEAD
             = new DefaultTrafficTreatment(ImmutableList.of(Instructions.createNoAction()));
-=======
-            = new DefaultTrafficTreatment(Collections.emptyList());
->>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
     private final Instructions.MeterInstruction meter;
 
     /**
@@ -231,14 +223,10 @@ public final class DefaultTrafficTreatment implements TrafficTreatment {
             treatment.deferred().forEach(i -> add(i));
 
             immediate();
-<<<<<<< HEAD
             treatment.immediate().stream()
                     // NOACTION will get re-added if there are no other actions
                     .filter(i -> i.type() != Instruction.Type.NOACTION)
                     .forEach(i -> add(i));
-=======
-            treatment.immediate().forEach(i -> add(i));
->>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
 
             clear = treatment.clearedDeferred();
         }
@@ -490,10 +478,7 @@ public final class DefaultTrafficTreatment implements TrafficTreatment {
         public TrafficTreatment build() {
             if (deferred.size() == 0 && immediate.size() == 0
                     && table == null && !clear) {
-<<<<<<< HEAD
                 immediate();
-=======
->>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
                 noAction();
             }
             return new DefaultTrafficTreatment(deferred, immediate, table, clear, meta, meter);
