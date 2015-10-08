@@ -42,7 +42,11 @@ public class NetworkConfigRegistryCommand extends AbstractShellCommand {
 
     private void print(ConfigFactory configFactory) {
         print(shortOnly ? SHORT_FMT : FMT,
+<<<<<<< HEAD
               configFactory.subjectFactory().subjectClassKey(),
+=======
+              configFactory.subjectFactory().subjectKey(),
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
               configFactory.configKey(),
               configFactory.subjectFactory().subjectClass().getName(),
               configFactory.configClass().getName());

@@ -1,5 +1,9 @@
 /*
+<<<<<<< HEAD
  * Copyright 2014-2015 Open Networking Laboratory
+=======
+ * Copyright 2015 Open Networking Laboratory
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.

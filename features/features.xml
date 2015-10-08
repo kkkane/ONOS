@@ -139,6 +139,10 @@
     <feature name="onos-app-hello" version="@FEATURE-VERSION"
              description="lab224 ONOS test">
         <feature>onos-api</feature>
+<<<<<<< HEAD
         <bundle>mvn:org.onosproject/onos-app-hello/1.4.0-SNAPSHOT</bundle>
+=======
+        <bundle>mvn:org.onosproject/onos-app-hello/@ONOS-VERSION</bundle>
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
     </feature>
 </features>

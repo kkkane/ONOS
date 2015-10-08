@@ -43,10 +43,13 @@ public final class SubjectFactories {
                 public ApplicationId createSubject(String key) {
                     return coreService.registerApplication(key);
                 }
+<<<<<<< HEAD
                 @Override
                 public String subjectKey(ApplicationId subject) {
                     return subject.name();
                 }
+=======
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
             };
 
     public static final SubjectFactory<DeviceId> DEVICE_SUBJECT_FACTORY =
@@ -63,10 +66,13 @@ public final class SubjectFactories {
                 public ConnectPoint createSubject(String key) {
                     return ConnectPoint.deviceConnectPoint(key);
                 }
+<<<<<<< HEAD
                 @Override
                 public String subjectKey(ConnectPoint subject) {
                     return key(subject);
                 }
+=======
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
             };
 
     public static final SubjectFactory<HostId> HOST_SUBJECT_FACTORY =
@@ -86,10 +92,13 @@ public final class SubjectFactories {
                     return LinkKey.linkKey(ConnectPoint.deviceConnectPoint(cps[0]),
                                            ConnectPoint.deviceConnectPoint(cps[1]));
                 }
+<<<<<<< HEAD
                 @Override
                 public String subjectKey(LinkKey subject) {
                     return key(subject.src()) + "-" + key(subject.dst());
                 }
+=======
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
             };
 
     /**
@@ -102,8 +111,11 @@ public final class SubjectFactories {
         coreService = service;
     }
 
+<<<<<<< HEAD
     private static String key(ConnectPoint subject) {
         return subject.deviceId() + "/" + subject.port();
     }
 
+=======
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
 }

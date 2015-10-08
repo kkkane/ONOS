@@ -35,6 +35,7 @@ import static com.google.common.base.Strings.isNullOrEmpty;
         description = "Manages network configuration")
 public class NetworkConfigCommand extends AbstractShellCommand {
 
+<<<<<<< HEAD
     @Argument(index = 0, name = "subjectClassKey", description = "Subject class key",
             required = false, multiValued = false)
     String subjectClassKey = null;
@@ -42,6 +43,15 @@ public class NetworkConfigCommand extends AbstractShellCommand {
     @Argument(index = 1, name = "subjectKey", description = "Subject key",
             required = false, multiValued = false)
     String subjectKey = null;
+=======
+    @Argument(index = 0, name = "subjectKey", description = "Subject key",
+            required = false, multiValued = false)
+    String subjectKey = null;
+
+    @Argument(index = 1, name = "subject", description = "Subject",
+            required = false, multiValued = false)
+    String subject = null;
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
 
     @Argument(index = 2, name = "configKey", description = "Config key",
             required = false, multiValued = false)
@@ -54,6 +64,7 @@ public class NetworkConfigCommand extends AbstractShellCommand {
     protected void execute() {
         service = get(NetworkConfigService.class);
         JsonNode root = mapper.createObjectNode();
+<<<<<<< HEAD
         if (isNullOrEmpty(subjectClassKey)) {
             addAll((ObjectNode) root);
         } else {
@@ -66,6 +77,20 @@ public class NetworkConfigCommand extends AbstractShellCommand {
                     addSubject((ObjectNode) root, s);
                 } else {
                     root = getSubjectConfig(getConfig(s, subjectClassKey, configKey));
+=======
+        if (isNullOrEmpty(subjectKey)) {
+            addAll((ObjectNode) root);
+        } else {
+            SubjectFactory subjectFactory = service.getSubjectFactory(subjectKey);
+            if (isNullOrEmpty(subject)) {
+                addSubjectClass((ObjectNode) root, subjectFactory);
+            } else {
+                Object s = subjectFactory.createSubject(subject);
+                if (isNullOrEmpty(configKey)) {
+                    addSubject((ObjectNode) root, s);
+                } else {
+                    root = getSubjectConfig(getConfig(s, subjectKey, configKey));
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
                 }
             }
         }
@@ -82,14 +107,22 @@ public class NetworkConfigCommand extends AbstractShellCommand {
         service.getSubjectClasses()
                 .forEach(sc -> {
                     SubjectFactory sf = service.getSubjectFactory(sc);
+<<<<<<< HEAD
                     addSubjectClass(newObject(root, sf.subjectClassKey()), sf);
+=======
+                    addSubjectClass(newObject(root, sf.subjectKey()), sf);
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
                 });
     }
 
     @SuppressWarnings("unchecked")
     private void addSubjectClass(ObjectNode root, SubjectFactory sf) {
         service.getSubjects(sf.subjectClass())
+<<<<<<< HEAD
                 .forEach(s -> addSubject(newObject(root, sf.subjectKey(s)), s));
+=======
+                .forEach(s -> addSubject(newObject(root, s.toString()), s));
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
     }
 
     private void addSubject(ObjectNode root, Object s) {

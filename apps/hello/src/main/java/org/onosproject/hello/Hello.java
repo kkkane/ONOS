@@ -76,6 +76,7 @@ public class Hello {
         packetService.addProcessor(processor, PacketProcessor.ADVISOR_MAX + 2);
 
         TrafficSelector.Builder selector = DefaultTrafficSelector.builder();
+<<<<<<< HEAD
         //TrafficSelector.Builder selector2 = DefaultTrafficSelector.builder();
 
         //datapath_join event
@@ -85,6 +86,12 @@ public class Hello {
 
         log.info("SSSSSSSSSSSSSSSSSStarteddddddddddddd");
         //System.out.println("SSSSSSSSSSSSSSSSSstarteddddddddddddd");
+=======
+        selector.matchEthType(Ethernet.TYPE_IPV4);
+        packetService.requestPackets(selector.build(), PacketPriority.REACTIVE, appId);
+
+        log.info("Starteddddddddddddd");
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
     }
 
     // method called at shutdown
@@ -93,8 +100,12 @@ public class Hello {
         // deregister and null our handler
         packetService.removeProcessor(processor);
         processor = null;
+<<<<<<< HEAD
         log.info("SSSSSSSSStoppedddddddddddddd");
         //System.out.println("SSSSSSSSSSStoppeddddddddddddd");
+=======
+        log.info("Stoppedddddddddddddd");
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
     }
 
     // our handler defined as a private inner class
@@ -106,12 +117,18 @@ public class Hello {
         public void process(PacketContext context) {
             // Stop processing if the packet has been handled, since we
             // can't do any more to it.
+<<<<<<< HEAD
             //System.out.println("Hello a!");
+=======
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
             if (context.isHandled()) {
                 return;
             }
 
+<<<<<<< HEAD
             //System.out.println("Hello b!");
+=======
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
             // Extract the original Ethernet frame from the packet information
             InboundPacket pkt = context.inPacket();
             Ethernet ethPkt = pkt.parsed();
@@ -154,9 +171,13 @@ public class Hello {
         OutboundPacket packet = new DefaultOutboundPacket(dst.location().deviceId(),
                                                       treatment, context.inPacket().unparsed());
         packetService.emit(packet);
+<<<<<<< HEAD
         log.info("ssssssssssssssendinggggg packet: {}", packet);
         //System.out.print("sendinggggg packet: ");
         //System.out.println(packet);
+=======
+        log.info("sendinggggg packet: {}", packet);
+>>>>>>> 3d268c483e83ad1594aa035f9bec8a671ad42e76
     }
 
     // Install a rule forwarding the packet to the specified port.
